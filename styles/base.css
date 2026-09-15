@@ -1,0 +1,88 @@
+/* Estilos compartilhados entre sobre.html, projetos.html e habilidades.html.
+   Cada pagina ainda carrega seu proprio CSS por cima para os estilos especificos. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --background: #FEFEFE;
+  --text: #0A0614;
+  --cor-primaria: #2349FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 804px;
+  justify-content: flex-end;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu ul li {
+  list-style: none;
+  gap: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+}
+
+.pag-ativa {
+  background-color: var(--cor-primaria);
+  border-radius: 100px;
+  color: var(--background);
+  padding: 15px 30px;
+}
+
+.intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & p {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 35px;
+    padding-bottom: 30px;
+  }
+  & > h2 {
+    font-size: 96px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+  }
+
+  .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .intro > h2 {
+    font-size: 48px;
+  }
+}

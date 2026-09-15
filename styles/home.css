@@ -116,3 +116,18 @@ li {
 li:hover{
     transform: translateY(-10px);
 }
+
+@media (max-width: 900px) {
+  main {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  ul {
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}

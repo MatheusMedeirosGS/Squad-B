@@ -82,3 +82,27 @@ a {
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  body {
+    margin: 15px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+  }
+
+  ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .servicos-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .app-grafico {
+    flex-direction: column;
+  }
+}
+
