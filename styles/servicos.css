@@ -1,4 +1,18 @@
-/* Estilos específicos de Serviços. Fonte, cores, menu, título e rodapé vêm de base.css. */
+/* Estilos específicos de Serviços. Estrutura de menu/rodapé vem de base.css;
+   aqui resgatamos a identidade visual original (fundo roxo escuro, cards em vidro). */
+
+body {
+  --text: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --destaque: rgba(255, 255, 255, 0.12);
+  --destaque-hover: rgba(255, 255, 255, 0.22);
+  --borda: rgba(255, 255, 255, 0.2);
+  background-color: #584099;
+}
+
+.header-bar > p {
+  color: #C9A6FF;
+}
 
 .servicos-container {
   display: flex;
@@ -16,10 +30,12 @@
 }
 
 .ui-ux-design, .desenvolvimento-web, .desen-app, .design-grafico {
-  background-color: var(--background);
+  background: radial-gradient(circle at 50% 10%, rgba(38, 77, 228, 0.45), rgba(119, 89, 139, 0.45));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--borda);
   border-radius: 24px;
-  box-shadow: 0 8px 30px rgba(35, 73, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   padding: 40px 30px;
   text-align: center;
   flex: 1 1 260px;
@@ -35,7 +51,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  color: var(--cor-primaria);
+  color: #C9A6FF;
 }
 
 .title-design, .title-desen-web, .title-desen-app, .title-design-grafico {

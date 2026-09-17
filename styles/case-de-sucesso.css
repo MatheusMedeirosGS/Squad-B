@@ -1,20 +1,30 @@
-/* Estilos específicos de Case de Sucesso. Fonte, cores, menu, título e rodapé vêm de base.css. */
+/* Estilos específicos de Case de Sucesso. Estrutura de menu/rodapé vem de base.css;
+   aqui resgatamos a identidade visual original (fundo bege, sombras fortes). */
+
+body {
+  --text: #1A1A1A;
+  --text-muted: #5A4A38;
+  --destaque: #E9C293;
+  --borda: rgba(0, 0, 0, 0.12);
+  background-color: #F3D3AB;
+}
 
 .cliente-info {
   margin: 0 0 40px;
-  background-color: var(--destaque);
+  background-color: #0F0D0A;
+  color: #F3D3AB;
   padding: 24px;
   border-radius: 24px;
   text-align: center;
 }
 
 .cliente-info h2 {
-  color: var(--cor-primaria);
+  color: #F3D3AB;
   font-size: 22px;
 }
 
 .subtitulo {
-  color: var(--text-muted);
+  color: rgba(243, 211, 171, 0.75);
   margin-top: 6px;
 }
 
@@ -26,10 +36,10 @@
 }
 
 .desafio, .solucao, .resultados, .tecnologias, .depoimento {
-  background-color: var(--background);
-  border: 1px solid var(--borda);
+  background-color: #FDF6EC;
+  border: none;
   border-radius: 24px;
-  box-shadow: 0 8px 30px rgba(35, 73, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
   padding: 40px;
 }
 
@@ -42,7 +52,7 @@
 }
 
 .icon-desafio, .icon-solucao, .icon-resultados, .icon-depoimento {
-  color: var(--cor-primaria);
+  color: #1A1A1A;
 }
 
 .desafio h3, .solucao h3, .resultados h3, .tecnologias h3, .depoimento h3 {
@@ -79,7 +89,7 @@
 }
 
 .metrica h4 {
-  color: var(--cor-primaria);
+  color: #A6631E;
   font-size: 28px;
 }
 
@@ -124,8 +134,8 @@
 }
 
 .tech-item {
-  background-color: var(--destaque);
-  color: var(--cor-primaria);
+  background-color: #0F0D0A;
+  color: #F3D3AB;
   padding: 8px 16px;
   border-radius: 100px;
   font-weight: 500;

@@ -1,4 +1,23 @@
-/* Estilos específicos de Contato. Fonte, cores, menu e rodapé vêm de base.css. */
+/* Estilos específicos de Contato. Estrutura de menu/rodapé vem de base.css;
+   aqui resgatamos a identidade visual original (header e card em caixa, acento roxo). */
+
+body {
+  --cor-primaria: #7B68EE;
+  --cor-primaria-hover: #6A5ADB;
+  --text-muted: #5A6C7D;
+  --destaque: #F0F0F0;
+  --destaque-hover: #E0E0E0;
+  --borda: #E0E0E0;
+  background-color: #F5F5F5;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 2px solid #E0E0E0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 0 -150px;
+  padding: 0 150px;
+}
 
 main {
   display: flex;
@@ -7,25 +26,25 @@ main {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 40px;
-  padding: 20px 0 60px;
+  margin: 40px 0;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--borda);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 form {
   flex: 1;
   min-width: 350px;
   max-width: 550px;
-  background-color: var(--background);
-  border: 1px solid var(--borda);
-  border-radius: 24px;
-  box-shadow: 0 8px 30px rgba(35, 73, 255, 0.08);
-  padding: 40px;
 }
 
 .project {
   flex: 1;
   min-width: 300px;
   max-width: 400px;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .project h1 {
@@ -89,7 +108,7 @@ button {
 .email:hover, .whatsapp:hover {
   background-color: var(--cor-primaria);
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(35, 73, 255, 0.25);
+  box-shadow: 0 6px 16px rgba(123, 104, 238, 0.25);
 }
 
 .email svg, .whatsapp svg {
@@ -135,7 +154,7 @@ button {
   font-family: inherit;
   font-size: 0.95em;
   transition: all 280ms ease;
-  background-color: #FAFBFF;
+  background-color: #FAFAFA;
   color: var(--text);
 }
 
@@ -149,12 +168,12 @@ button {
   outline: none;
   border-color: var(--cor-primaria);
   background-color: var(--background);
-  box-shadow: 0 0 0 3px rgba(35, 73, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.1);
 }
 
 .form-grupo input:hover,
 .form-grupo textarea:hover {
-  border-color: #A9BBFF;
+  border-color: #A89BE8;
 }
 
 .form-grupo textarea {
@@ -175,25 +194,25 @@ button {
 }
 
 .button-enviar button[type="submit"] {
-  background-color: var(--cor-primaria);
+  background: linear-gradient(135deg, #7B68EE 0%, #6A5ADB 100%);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(35, 73, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(123, 104, 238, 0.3);
 }
 
 .button-enviar button[type="submit"]:hover {
-  background-color: var(--cor-primaria-hover);
-  box-shadow: 0 6px 20px rgba(35, 73, 255, 0.4);
+  background: linear-gradient(135deg, #8B79F5 0%, #7B68EE 100%);
+  box-shadow: 0 6px 20px rgba(123, 104, 238, 0.4);
   transform: translateY(-2px);
 }
 
 .button-enviar button[type="submit"]:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(35, 73, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(123, 104, 238, 0.3);
 }
 
 .button-enviar button[type="submit"]:focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(35, 73, 255, 0.2);
+  box-shadow: 0 0 0 4px rgba(123, 104, 238, 0.2);
 }
 
 .button-cancelar button[type="reset"] {
@@ -216,19 +235,44 @@ button {
   box-shadow: 0 0 0 3px rgba(35, 73, 255, 0.15);
 }
 
+footer {
+  background-color: #2C3E50;
+  color: #fff;
+  margin: 60px -150px 0;
+  padding: 30px 150px;
+  border-top: none;
+}
+
+footer p {
+  opacity: 0.9;
+}
+
 @media (max-width: 900px) {
+  header {
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+
+  footer {
+    margin: 60px -24px 0;
+    padding: 30px 24px;
+  }
+
   main {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 30px;
+    padding: 24px;
   }
 
   .project {
     max-width: 100%;
+    min-width: 0;
   }
 
   form {
     max-width: 100%;
+    min-width: 0;
   }
 }
 

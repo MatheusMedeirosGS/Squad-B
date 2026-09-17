@@ -1,11 +1,30 @@
-/* Estilos específicos da Home. Fonte, cores, menu e rodapé vêm de base.css. */
+/* Estilos específicos da Home. Estrutura de menu/rodapé vem de base.css;
+   aqui resgatamos a identidade visual original (gradiente roxo). */
+
+body {
+  --cor-primaria: #8800F8;
+  --cor-primaria-hover: #6F00CC;
+  --text: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.85);
+  --destaque: rgba(255, 255, 255, 0.18);
+  --destaque-hover: rgba(255, 255, 255, 0.3);
+  --borda: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(270deg, #8800F8, #BD88F3);
+}
 
 main {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 40px 0 100px;
+}
+
+.principal {
+  text-align: center;
+  background-color: #AD66F5;
+  padding: 50px 60px;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(97, 63, 124, 0.5);
 }
 
 .principal h1 {
@@ -15,7 +34,6 @@ main {
 }
 
 .principal p {
-  color: var(--text-muted);
   font-size: 18px;
   max-width: 560px;
   margin: 0 auto;
@@ -52,5 +70,9 @@ main {
 @media (max-width: 900px) {
   main {
     padding: 20px 0 60px;
+  }
+
+  .principal {
+    padding: 40px 24px;
   }
 }
