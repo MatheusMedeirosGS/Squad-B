@@ -29,9 +29,14 @@
     msg.textContent = text;
     container.appendChild(msg);
     container.scrollTop = container.scrollHeight;
+    return msg;
   }
 
-  async function askGemini(question) {
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function callGemini(question) {
     const url =
       "https://generativelanguage.googleapis.com/v1beta/models/" +
       encodeURIComponent(model) +
@@ -46,13 +51,31 @@
       }),
     });
 
+    const data = await response.json().catch(() => null);
+
     if (!response.ok) {
-      throw new Error("Falha ao consultar o Gemini (HTTP " + response.status + ")");
+      const apiMessage = data?.error?.message;
+      const error = new Error(apiMessage || "Falha ao consultar o Gemini (HTTP " + response.status + ")");
+      error.status = response.status;
+      throw error;
     }
 
-    const data = await response.json();
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
     return text || "Não consegui gerar uma resposta.";
+  }
+
+  // O modelo do Gemini às vezes responde 503 ("high demand") em picos de uso.
+  // Tenta de novo uma vez após uma pequena espera antes de mostrar erro ao usuário.
+  async function askGemini(question) {
+    try {
+      return await callGemini(question);
+    } catch (error) {
+      if (error.status === 503) {
+        await wait(1500);
+        return await callGemini(question);
+      }
+      throw error;
+    }
   }
 
   function init() {
@@ -90,11 +113,14 @@
       input.value = "";
       const submitButton = form.querySelector("button");
       submitButton.disabled = true;
+      const typingMsg = addMessage(messages, "Digitando...", "system");
 
       try {
         const answer = await askGemini(question);
+        typingMsg.remove();
         addMessage(messages, answer, "bot");
       } catch (error) {
+        typingMsg.remove();
         addMessage(messages, "Erro ao falar com o Gemini: " + error.message, "system");
       } finally {
         submitButton.disabled = false;
