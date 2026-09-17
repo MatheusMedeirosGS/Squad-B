@@ -4,5 +4,5 @@
 // "config.js" é ignorado localmente pelo git (.git/info/exclude) e nunca deve ser commitado.
 window.GEMINI_CONFIG = {
   apiKey: "COLE_SUA_API_KEY_AQUI",
-  model: "gemini-2.5-flash",
+  model: "gemini-3.6-flash",
 };

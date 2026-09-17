@@ -3,7 +3,7 @@
 (function () {
   const config = window.GEMINI_CONFIG || {};
   const apiKey = config.apiKey || "";
-  const model = config.model || "gemini-2.5-flash";
+  const model = config.model || "gemini-3.6-flash";
 
   function buildWidget() {
     const wrapper = document.createElement("div");
