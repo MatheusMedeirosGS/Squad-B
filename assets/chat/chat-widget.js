@@ -96,6 +96,7 @@
 
     toggle.addEventListener("click", () => {
       panel.hidden = !panel.hidden;
+      wrapper.classList.toggle("chat-open", !panel.hidden);
       if (!panel.hidden) input.focus();
     });
 

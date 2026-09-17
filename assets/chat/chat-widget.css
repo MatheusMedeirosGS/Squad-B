@@ -6,6 +6,20 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* Com o chat fechado, o menu do site fica por cima do botão flutuante
+   (em páginas com navegação longa em telas curtas, tipo contato.html,
+   o botão podia cobrir links do menu). Com o chat aberto, o painel fica
+   por cima do menu, já que nesse momento é o usuário quem está com o
+   foco na conversa. A classe é alternada em chat-widget.js. */
+header, nav {
+  position: relative;
+  z-index: 10000;
+}
+
+#chat-widget.chat-open {
+  z-index: 10001;
+}
+
 #chat-toggle {
   width: 56px;
   height: 56px;
