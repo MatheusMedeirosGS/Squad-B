@@ -1,12 +1,17 @@
-/* Estilos compartilhados entre sobre.html, projetos.html e habilidades.html.
-   Cada pagina ainda carrega seu proprio CSS por cima para os estilos especificos. */
+/* Identidade visual compartilhada por todas as páginas do site:
+   cores, tipografia, layout base, menu, título de página e rodapé. */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   --background: #FEFEFE;
   --text: #0A0614;
+  --text-muted: #6A6F8E;
   --cor-primaria: #2349FF;
+  --cor-primaria-hover: #1B3BD6;
+  --borda: #CAD9EC;
+  --destaque: #EEF1FF;
+  --destaque-hover: #DCE3FF;
 }
 
 * {
@@ -19,70 +24,130 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Inter', Segoe UI, Arial, Helvetica, sans-serif;
+  font-optical-sizing: auto;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 150px;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+}
+
+/* MENU */
 .menu {
   display: flex;
   align-items: center;
-  gap: 804px;
   justify-content: flex-end;
-  margin-bottom: 100px;
-  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 40px 0;
 }
 
 .menu ul {
   display: flex;
   align-items: center;
-  gap: 30px;
-}
-
-.menu ul li {
+  flex-wrap: wrap;
+  gap: 8px;
   list-style: none;
-  gap: 10px;
 }
 
 .menu ul li a {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-weight: 500;
   text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menu ul li a:hover {
+  background-color: var(--destaque);
 }
 
 .pag-ativa {
-  background-color: var(--cor-primaria);
-  border-radius: 100px;
-  color: var(--background);
-  padding: 15px 30px;
+  background-color: var(--cor-primaria) !important;
+  color: var(--background) !important;
 }
 
+.pag-ativa:hover {
+  background-color: var(--cor-primaria) !important;
+}
+
+/* TÍTULO DE PÁGINA (usado por .header-bar e .intro, com H1 ou H2 conforme a página) */
+.header-bar,
 .intro {
   text-align: center;
+  padding: 20px 0 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  & p {
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 35px;
-    padding-bottom: 30px;
-  }
-  & > h2 {
-    font-size: 96px;
-    font-weight: 700;
-  }
+}
+
+.header-bar > p {
+  color: var(--cor-primaria);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.header-bar h1,
+.intro h1,
+.intro h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+}
+
+.intro > p {
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+/* RODAPÉ */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+  color: var(--text-muted);
+  font-size: 0.95em;
+  border-top: 1px solid var(--destaque);
+}
+
+footer a {
+  color: var(--cor-primaria);
 }
 
 @media (max-width: 900px) {
+  body {
+    padding: 0 24px;
+  }
+
   .menu {
-    gap: 16px;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 40px;
-    margin-top: 30px;
+    margin: 24px 0;
   }
 
   .menu ul {
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
   }
 
-  .intro > h2 {
-    font-size: 48px;
+  .header-bar h1,
+  .intro h1,
+  .intro h2 {
+    font-size: 32px;
   }
 }

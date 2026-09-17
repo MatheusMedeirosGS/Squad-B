@@ -1,20 +1,7 @@
-/* Tokens de cor, reset, menu, .pag-ativa e .intro vêm de base.css (carregado antes deste arquivo). */
-
-body {
-  font-family: 'Inter', Segoe UI, Arial, Helvetica, sans-serif;
-  font-optical-sizing: auto;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: var(--background);
-  & * {
-    color: var(--text);
-  }
-}
+/* Tokens de cor, reset, fonte, layout de página, menu, título e rodapé vêm de base.css (carregado antes deste arquivo). */
 
 .project-card {
-  border: 1px solid #CAD9EC;
+  border: 1px solid var(--borda);
   border-radius: 24px;
   padding: 30px;
   margin-bottom: 50px;
@@ -33,7 +20,7 @@ body {
       line-height: normal;
     }
     & .period {
-      color: #6A6F8E;
+      color: var(--text-muted);
       font-size: 16px;
       font-weight: 600;
       font-style: normal;
@@ -67,9 +54,3 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  body {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-}
