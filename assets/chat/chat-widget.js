@@ -36,6 +36,18 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  const SYSTEM_INSTRUCTION =
+    "Você é o assistente virtual do site do Squad B, uma equipe de estudantes de " +
+    "Análise e Desenvolvimento de Sistemas que oferece serviços de UI/UX Design, " +
+    "Desenvolvimento Web, Desenvolvimento de Apps e Design Gráfico. " +
+    "O site tem as páginas: Home, Sobre, Serviços, Projetos, Skills, Depoimentos, " +
+    "Case de Sucesso e Contato. " +
+    "Responda de forma simpática, direta e em português do Brasil, ajudando o " +
+    "visitante a entender os serviços do Squad B, encontrar informações no site " +
+    "ou saber como entrar em contato (página Contato). " +
+    "Se a pergunta não tiver relação com o Squad B ou seus serviços, responda " +
+    "normalmente, mas sem se afastar do seu papel de assistente do site.";
+
   async function callGemini(question) {
     const url =
       "https://generativelanguage.googleapis.com/v1beta/models/" +
@@ -47,6 +59,7 @@
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
         contents: [{ parts: [{ text: question }] }],
       }),
     });
