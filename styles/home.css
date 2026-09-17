@@ -125,6 +125,7 @@ li:hover{
 
   ul {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   h1 {
